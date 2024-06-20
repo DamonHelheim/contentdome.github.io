@@ -1,5 +1,5 @@
 import { defineConfig } from 'astro/config'
 
 export default defineConfig({
-  site: 'https://contentdome.github.io'
+  site: 'https://damonhelheim.github.io/'
 })
