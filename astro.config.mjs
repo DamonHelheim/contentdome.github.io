@@ -6,6 +6,6 @@ const LIVE_URL = 'https://damonhelheim.github.io';
 const SUB_URL = 'contentdome.github.io';
 
 export default defineConfig({
-  site: LIVE_URL,
-  base: SUB_URL,
+  site: 'https://damonhelheim.github.io',
+  base: 'contentdome.github.io',
 })
