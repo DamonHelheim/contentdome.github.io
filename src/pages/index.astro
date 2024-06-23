@@ -17,9 +17,7 @@ import ContactCTA from '../components/ContactCTA.astro';
 import Skills from '../components/Skills.astro';
 
 // Content Fetching: List four most recent work projects
-const projects = (await getCollection('work'))
-	.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
-	.slice(0, 4);
+const projects = (await getCollection('work')).sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()).slice(0, 4);
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/basics/astro-components/
@@ -30,14 +28,13 @@ const projects = (await getCollection('work'))
 		<div class="wrapper stack gap-8 lg:gap-20">
 			<header class="hero">
 				<Hero
-					title="Hello, my name is Jeanine White"
-					tagline="I am a Creative Developer who is currently based in Portland, Oregon."
-					align="start"
-				>
+					title="Hello, my name is Damon Helheim"
+					tagline="I am a C# and Blazor Developer, 3D Modeler and AI User."
+					align="start">
 					<div class="roles">
-						<Pill><Icon icon="code" size="1.33em" /> Developer</Pill>
-						<Pill><Icon icon="microphone-stage" size="1.33em" /> Speaker</Pill>
-						<Pill><Icon icon="pencil-line" size="1.33em" /> Writer</Pill>
+						<Pill><Icon icon="C#-Developer" size="1.33em" /> Developer</Pill>
+						<Pill><Icon icon="3D" size="1.33em" /> 3D Modeler</Pill>
+						<Pill><Icon icon="AI" size="1.33em" /> AI User</Pill>
 					</div>
 				</Hero>
 
@@ -45,11 +42,13 @@ const projects = (await getCollection('work'))
 					alt="Jeanine White smiling in a red plaid shirt and tortoise shell glasses"
 					width="480"
 					height="620"
-					src="/contentdome.github.io/assets/portrait.jpg"
+					src="/contentdome.github.io/assets/portrait_3.png"
 				/>
+
 			</header>
 
 			<Skills />
+			
 		</div>
 
 		<main class="wrapper stack gap-20 lg:gap-48">
@@ -72,10 +71,12 @@ const projects = (await getCollection('work'))
 				</div>
 
 				<div class="cta">
+
 					<CallToAction href="/contentdome.github.io/work/">
 						View All
 						<Icon icon="arrow-right" size="1.2em" />
 					</CallToAction>
+					
 				</div>
 			</section>
 
@@ -102,7 +103,8 @@ const projects = (await getCollection('work'))
 			</section>
 		</main>
 
-		<ContactCTA />
+		<ContactCTA/>
+		
 	</div>
 </BaseLayout>
 

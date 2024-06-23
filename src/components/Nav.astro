@@ -12,11 +12,7 @@ const textLinks: { label: string; href: string }[] = [
 
 /** Icon links to social media — edit these with links to your profiles! */
 const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths }[] = [
-	{ label: 'Twitter', href: 'https://twitter.com/me', icon: 'twitter-logo' },
-	{ label: 'Twitch', href: 'https://twitch.tv/me', icon: 'twitch-logo' },
 	{ label: 'GitHub', href: 'https://github.com/me', icon: 'github-logo' },
-	{ label: 'CodePen', href: 'https://codepen.io/me', icon: 'codepen-logo' },
-	{ label: 'dribbble', href: 'https://dribbble.com/me', icon: 'dribbble-logo' },
 	{ label: 'YouTube', href: 'https://www.youtube.com/@me/', icon: 'youtube-logo' },
 ];
 ---
@@ -24,8 +20,8 @@ const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths }[]
 <nav>
 	<div class="menu-header">
 		<a href="/" class="site-title">
-			<Icon icon="terminal-window" color="var(--accent-regular)" size="1.6em" gradient />
-			Jeanine White
+			<Icon icon="PersonGear" color="#ffffff"size="1.6em"/>
+			Damon Helheim
 		</a>
 		<menu-button>
 			<template>
@@ -46,11 +42,10 @@ const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths }[]
 							class:list={[
 								'link',
 								{
-									active:
-										Astro.url.pathname === href ||
-										(href !== '/' && Astro.url.pathname.startsWith(href)),
+									active: Astro.url.pathname === href || (href !== '/' && Astro.url.pathname.startsWith(href)),
 								},
 							]}
+
 							href={href}
 						>
 							{label}
@@ -60,20 +55,24 @@ const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths }[]
 			}
 		</ul>
 	</noscript>
+
 	<noscript>
 		<div class="menu-footer">
 			<div class="socials">
 				{
 					iconLinks.map(({ href, icon, label }) => (
+
 						<a href={href} class="social">
 							<span class="sr-only">{label}</span>
 							<Icon icon={icon} />
 						</a>
+						
 					))
 				}
 			</div>
 		</div>
 	</noscript>
+
 	<div id="menu-content" hidden>
 		<ul class="nav-items">
 			{
@@ -150,10 +149,13 @@ const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths }[]
 			mediaQueries.addEventListener('change', handleViewports);
 		}
 	}
+
 	customElements.define('menu-button', MenuButton);
+
 </script>
 
 <style>
+	
 	nav {
 		z-index: 9999;
 		position: relative;
@@ -181,7 +183,7 @@ const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths }[]
 	.menu-button {
 		position: relative;
 		display: flex;
-		border: 0;
+		border: 10;
 		border-radius: 999rem;
 		padding: 0.5rem;
 		font-size: 1.5rem;
@@ -230,7 +232,7 @@ const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths }[]
 
 	.link {
 		display: inline-block;
-		color: var(--gray-300);
+		color: #1467a6;
 		text-decoration: none;
 	}
 
@@ -262,7 +264,7 @@ const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths }[]
 		display: flex;
 		padding: var(--icon-padding);
 		text-decoration: none;
-		color: var(--accent-dark);
+		color: #0aa5f2;
 		transition: color var(--theme-transition);
 	}
 
@@ -298,11 +300,14 @@ const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths }[]
 			display: contents;
 		}
 
+		/*
+		 At the moment it's gray an has rounded corners
+		*/
 		.nav-items {
 			position: relative;
 			flex-direction: row;
 			font-size: var(--text-sm);
-			border-radius: 999rem;
+			border-radius: 5px;
 			border: 0;
 			padding: 0.5rem 0.5625rem;
 			background: radial-gradient(var(--gray-900), var(--gray-800) 150%);
@@ -314,13 +319,13 @@ const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths }[]
 			inset: -1px;
 			content: '';
 			background: var(--gradient-stroke);
-			border-radius: 999rem;
+			border-radius: 5px;
 			z-index: -1;
 		}
 
 		.link {
-			padding: 0.5rem 1rem;
-			border-radius: 999rem;
+			padding: 0.5rem 3rem;
+			border-radius: 5px;
 			transition:
 				color var(--theme-transition),
 				background-color var(--theme-transition);
@@ -328,13 +333,13 @@ const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths }[]
 
 		.link:hover,
 		.link:focus {
-			color: var(--gray-100);
-			background-color: var(--accent-subtle-overlay);
+			color: #d9ebfa;
+			background-color: #1495a6;
 		}
 
 		.link.active {
-			color: var(--accent-text-over);
-			background-color: var(--accent-regular);
+			color: #d9ebfa;
+			background-color: #1495a6;
 		}
 
 		.menu-footer {
